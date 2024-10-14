@@ -6,19 +6,19 @@ import axios from "axios";
 const Read = () => {
 // Sample data array containing movie objects
 
-    const [movies, setMovies] = useState([]);
+const [movies, setMovies] = useState([]); // State to hold movie data
 
-  useEffect(
-      () => {
-        axios.get('https://jsonblob.com/api/jsonblob/1287718524221775872')
-      .then((response)=>{
-        console.log(response.data.movies);
-        setMovies(response.data.movies);
-      })
-      .catch((error)=>{});
-
-      }
-    );
+useEffect(() => {
+  // Fetch data from API
+  axios.get('https://jsonblob.com/api/jsonblob/1287718524221775872')
+    .then((response) => {
+      console.log(response.data.movies); // Log fetched movies
+      setMovies([...response.data.movies, { title: "New Movie", year: 2024 }]); // Add new movie
+    })
+    .catch((error) => {
+      console.error(error); // Handle errors
+    });
+}, []);
 
 
      // run the Read component
