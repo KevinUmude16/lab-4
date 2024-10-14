@@ -9,13 +9,13 @@ import Create from './Components/create';
 import Movies from './Components/movies';
 import MovieItem from './Components/movieitem';
 
+
 function App() {
   return (
     <Router>
-      <NavigationBar /> {/* Navigation bar */}
+      <NavigationBar></NavigationBar>
+      <Header></Header>
       <Routes>
-      <Route path="/movieitem" element={<MovieItem />} /> {/* MovieItem route */}
-      <Route path="/home" element={<Movies />} /> {/* Movies route */}
         <Route path="/home" element={<Content />} /> {/* Home route */}
         <Route path="/read" element={<Read/>} /> {/* Read route */}
         <Route path="/create" element={<Create/>} /> {/* Create route */}
