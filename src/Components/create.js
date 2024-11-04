@@ -1,4 +1,5 @@
 import { useState } from "react"; // Importing useState hook from React
+import axios from "axios";
 
 function Create() {
   // Defining state variables for title, year, and poster, with their initial values set to empty strings
@@ -10,6 +11,12 @@ function Create() {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents the default form submission (refreshing the page)
     console.log(title); // Logs the movie title to the console
+    const movie = {title,year,poster}
+
+    axios.post('http://localhost:4000/api/movies',movie)
+    .then()
+    .catch();
+    console.log(movie);
   }
   
   return (

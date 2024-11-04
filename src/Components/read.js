@@ -10,10 +10,10 @@ const [movies, setMovies] = useState([]); // State to hold movie data
 
 useEffect(() => {
   // Fetch data from API
-  axios.get('https://jsonblob.com/api/jsonblob/1287718524221775872')
+  axios.get('http://localhost:4000/api/movies')
     .then((response) => {
       console.log(response.data.movies); // Log fetched movies
-      setMovies([...response.data.movies, { title: "New Movie", year: 2024 }]); // Add new movie
+      setMovies([...response.data.whatever, { title: "New Movie", year: 2024 }]); // Add new movie
     })
     .catch((error) => {
       console.error(error); // Handle errors
