@@ -4,9 +4,9 @@ const MovieItem = (props) =>{
     return(
         <div>
 
-            <h2>{props.myMovie.Title}</h2>
-            <p>{props.myMovie.Year}</p>
-            <img src ={props.myMovie.Poster}></img>
+            <h2>{props.myMovie.title}</h2>
+            <p>{props.myMovie.year}</p>
+            <img src ={props.myMovie.poster}></img>
         </div>
     );
 }

@@ -13,7 +13,7 @@ useEffect(() => {
   axios.get('http://localhost:4000/api/movies')
     .then((response) => {
       console.log(response.data.movies); // Log fetched movies
-      setMovies([...response.data.whatever, { title: "New Movie", year: 2024 }]); // Add new movie
+      setMovies([...response.data, { title: "New Movie", year: 2024 }]); // Add new movie
     })
     .catch((error) => {
       console.error(error); // Handle errors
