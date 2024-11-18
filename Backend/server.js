@@ -91,6 +91,11 @@ app.get('/api/movie/:id', async (req, res) => {
     res.send(movie); // Send the found movie as a response
 });
 
+
+app.put('/api/movie/:id', async (req, res) => {
+    let movie = await Movie.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(movie);
+});
 // Start the server and listen on the defined port
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`); // Log a message to the console when the server starts

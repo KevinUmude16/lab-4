@@ -8,6 +8,7 @@ import Read from './Components/read';
 import Create from './Components/create';
 import Movies from './Components/movies';
 import MovieItem from './Components/movieitem';
+import Edit from './Components/edit';
 
 
 function App() {
@@ -19,8 +20,10 @@ function App() {
         <Route path="/home" element={<Content />} /> {/* Home route */}
         <Route path="/read" element={<Read/>} /> {/* Read route */}
         <Route path="/create" element={<Create/>} /> {/* Create route */}
+        <Route path='/edit/:id' element={<Edit />} />
       </Routes>
-      <Footer /> {/* Footer */}
+
+      <Footer/> {/* Footer */}
     </Router>
   );
 }
