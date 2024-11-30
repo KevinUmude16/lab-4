@@ -96,6 +96,31 @@ app.put('/api/movie/:id', async (req, res) => {
     let movie = await Movie.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.send(movie);
 });
+
+// Define the DELETE route to remove a movie by its ID
+app.delete('/api/movie/:id', async (req, res) => {
+  
+    // Log the ID of the movie that is being deleted for debugging purposes
+    console.log('Deleting movie with ID:', req.params.id);
+
+    try {
+        // Find and delete the movie from the database by its ID
+        const movie = await movieModel.findByIdAndDelete(req.params.id);
+
+        // If the movie was not found (i.e., it might be null), return an error message
+        if (!movie) {
+            return res.status(404).send({ message: "Movie not found" });
+        }
+
+        // Respond with a success message and the deleted movie data
+        res.status(200).send({ message: "Movie deleted successfully", movie });
+    } catch (error) {
+        // Handle any errors that may occur during the database operation
+        console.error('Error deleting movie:', error);
+        res.status(500).send({ message: "An error occurred while deleting the movie" });
+    }
+});
+
 // Start the server and listen on the defined port
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`); // Log a message to the console when the server starts
