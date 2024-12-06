@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../App.css';
 
 const EditTeam = ({ team, onTeamUpdated }) => {
     const [newName, setNewName] = useState(team.name);
