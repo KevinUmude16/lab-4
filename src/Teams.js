@@ -3,13 +3,14 @@ import axios from 'axios';
 import AddTeam from './AddTeam';
 import EditTeam from './Components/EditTeam';
 import { Link } from 'react-router-dom';
+import './App.css'; // Import the CSS file for styling
 
 const Teams = () => {
     const [teams, setTeams] = useState([]);
-    const [searchTerm, setSearchTerm] = useState(''); // New state for search term
+    const [searchTerm, setSearchTerm] = useState(''); // State for search input
     const [editingTeam, setEditingTeam] = useState(null);
 
-    // Fetch all teams
+    // Fetch all teams from the backend
     useEffect(() => {
         fetchTeams();
     }, []);
@@ -20,13 +21,14 @@ const Teams = () => {
             .catch(error => console.error('Error fetching teams:', error));
     };
 
-    // Filter teams based on the search term
+    // Filter teams based on search term
     const filteredTeams = teams.filter(team =>
         team.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
-        <div>
+        <div className="container">
+            <h1>Football Teams</h1>
             <AddTeam onTeamAdded={(newTeam) => setTeams([...teams, newTeam])} />
 
             {/* Search Input */}
@@ -35,33 +37,45 @@ const Teams = () => {
                 placeholder="Search teams..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                style={{ margin: '10px 0', padding: '5px', width: '100%' }}
+                className="search-input"
             />
 
-            <ul>
+            <ul className="team-list">
                 {filteredTeams.map((team, index) => (
-                    <li key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <img
-                            src={team.logo}
-                            alt={`${team.name} logo`}
-                            style={{ width: '50px', height: '50px', objectFit: 'cover' }}
-                        />
-                        {editingTeam === team.name ? (
-                            <EditTeam
-                                team={team}
-                                onTeamUpdated={() => setEditingTeam(null)}
+                    <li key={index} className="team-item">
+                        <div className="team-info">
+                            <img
+                                src={team.logo}
+                                alt={`${team.name} logo`}
+                                className="team-logo"
                             />
-                        ) : (
-                            <>
-                                <Link to={`/teams/${team.name}`}>{team.name}</Link>
-                                <button onClick={() => setEditingTeam(team.name)}>Edit</button>
-                                <button onClick={() => axios.delete(`http://localhost:4000/teams/${team.name}`)
+                            {editingTeam === team.name ? (
+                                <EditTeam
+                                    team={team}
+                                    onTeamUpdated={() => setEditingTeam(null)}
+                                />
+                            ) : (
+                                <Link to={`/teams/${team.name}`} className="team-name">
+                                    {team.name}
+                                </Link>
+                            )}
+                        </div>
+                        <div className="team-actions">
+                            <button
+                                className="edit-button"
+                                onClick={() => setEditingTeam(team.name)}
+                            >
+                                Edit
+                            </button>
+                            <button
+                                className="delete-button"
+                                onClick={() => axios.delete(`http://localhost:4000/teams/${team.name}`)
                                     .then(() => setTeams(teams.filter(t => t.name !== team.name)))
-                                    .catch(error => console.error('Error deleting team:', error))}>
-                                    Delete
-                                </button>
-                            </>
-                        )}
+                                    .catch(error => console.error('Error deleting team:', error))}
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </li>
                 ))}
             </ul>
@@ -70,3 +84,6 @@ const Teams = () => {
 };
 
 export default Teams;
+
+
+

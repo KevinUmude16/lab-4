@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './App.css'; // Import CSS for styling
 
 const AddTeam = ({ onTeamAdded }) => {
     const [teamName, setTeamName] = useState('');
@@ -17,20 +18,22 @@ const AddTeam = ({ onTeamAdded }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="add-team-form">
             <input
                 type="text"
                 placeholder="Enter team name"
                 value={teamName}
                 onChange={(e) => setTeamName(e.target.value)}
+                className="add-input"
             />
             <input
                 type="text"
                 placeholder="Enter logo URL"
                 value={teamLogo}
                 onChange={(e) => setTeamLogo(e.target.value)}
+                className="add-input"
             />
-            <button type="submit">Add Team</button>
+            <button type="submit" className="add-button">Add Team</button>
         </form>
     );
 };

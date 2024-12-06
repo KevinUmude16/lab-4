@@ -19,13 +19,15 @@ const EditTeam = ({ team, onTeamUpdated }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="edit-team-form">
             <input
                 type="text"
                 value={newName}
                 onChange={(e) => setNewName(e.target.value)}
+                className="edit-input"
+                placeholder="Edit team name"
             />
-            <button type="submit">Save</button>
+            <button type="submit" className="edit-button">Save</button>
         </form>
     );
 };
