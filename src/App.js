@@ -1,31 +1,24 @@
-// Import routing and custom components
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavigationBar from './Components/NavigationBar';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Content from './Components/Content';
-import Read from './Components/read';
-import Create from './Components/create';
-import Movies from './Components/movies';
-import MovieItem from './Components/movieitem';
-import Edit from './Components/edit';
-
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Teams from './Teams';
+import TeamDetails from './TeamDetails';
 
 function App() {
-  return (
-    <Router>
-      <NavigationBar></NavigationBar>
-      <Header></Header>
-      <Routes>
-        <Route path="/home" element={<Content />} /> {/* Home route */}
-        <Route path="/read" element={<Read/>} /> {/* Read route */}
-        <Route path="/create" element={<Create/>} /> {/* Create route */}
-        <Route path='/edit/:id' element={<Edit />} />
-      </Routes>
-
-      <Footer/> {/* Footer */}
-    </Router>
-  );
+    return (
+        <Router>
+            <div>
+                <nav style={{ padding: '10px', background: '#f4f4f4', marginBottom: '20px' }}>
+                    <Link to="/" style={{ marginRight: '10px' }}>Home</Link>
+                </nav>
+                <Routes>
+                    <Route path="/" element={<Teams />} />
+                    <Route path="/teams/:name" element={<TeamDetails />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
-export default App; // Export App component
+export default App;
+
+
