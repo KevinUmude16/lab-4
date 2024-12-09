@@ -16,7 +16,7 @@ const Teams = () => {
     }, []);
 
     const fetchTeams = () => {
-        axios.get('http://localhost:4000/teams')
+        axios.get('http://localhost:5000/teams')
             .then(response => setTeams(response.data))
             .catch(error => console.error('Error fetching teams:', error));
     };
@@ -69,7 +69,7 @@ const Teams = () => {
                             </button>
                             <button
                                 className="delete-button"
-                                onClick={() => axios.delete(`http://localhost:4000/teams/${team.name}`)
+                                onClick={() => axios.delete(`http://localhost:5000/teams/${team.name}`)
                                     .then(() => setTeams(teams.filter(t => t.name !== team.name)))
                                     .catch(error => console.error('Error deleting team:', error))}
                             >

@@ -9,7 +9,7 @@ const EditTeam = ({ team, onTeamUpdated }) => {
         e.preventDefault();
 
         // Send PUT request to update the team
-        axios.put(`http://localhost:4000/teams/${team.name}`, { name: newName })
+        axios.put(`http://localhost:5000/teams/${team.name}`, { name: newName })
             .then((response) => {
                 console.log(response.data.message);
                 onTeamUpdated(team.name, newName); // Notify parent component

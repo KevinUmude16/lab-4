@@ -8,7 +8,7 @@ const AddTeam = ({ onTeamAdded }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:4000/teams', { name: teamName, logo: teamLogo })
+        axios.post('http://localhost:5000/teams', { name: teamName, logo: teamLogo })
             .then(response => {
                 onTeamAdded(response.data);
                 setTeamName('');
