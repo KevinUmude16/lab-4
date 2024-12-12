@@ -1,59 +1,60 @@
 /* General styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; /* Clean and readable font */
   margin: 0;
   padding: 0;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; /* Light gray background for better contrast */
 }
 
 .container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 h1 {
   text-align: center;
-  color: #343a40;
+  color: #343a40; /* Dark gray for better readability */
 }
 
+/* Button styles */
 button {
   padding: 5px 10px;
   margin-left: 5px;
   border: none;
-  border-radius: 4px;
+  border-radius: 4px; /* Rounded corners for buttons */
   cursor: pointer;
 }
 
 button:hover {
-  opacity: 0.9;
+  opacity: 0.9; /* Slight hover effect */
 }
 
 button.edit {
-  background-color: #ffc107;
-  color: #fff;
+  background-color: #ffc107; /* Yellow background for edit */
+  color: #fff; /* White text */
 }
 
 button.delete {
-  background-color: #dc3545;
+  background-color: #dc3545; /* Red background for delete */
   color: #fff;
 }
 
 button.add {
-  background-color: #28a745;
+  background-color: #28a745; /* Green background for add */
   color: #fff;
 }
 
-/* Input fields */
+/* Input field styles */
 input {
   padding: 8px;
   margin: 5px 0;
-  border: 1px solid #ced4da;
+  border: 1px solid #ced4da; /* Light gray border */
   border-radius: 4px;
-  width: calc(100% - 20px);
+  width: calc(100% - 20px); /* Responsive input width */
 }
 
 .search-input {
@@ -61,12 +62,12 @@ input {
   padding: 8px;
   margin-bottom: 15px;
   border: 1px solid #ced4da;
-  border-radius: 4px;
+  border-radius: 4px; /* Consistent styling for inputs */
 }
 
-/* Team list */
+/* Team list styles */
 ul {
-  list-style: none;
+  list-style: none; /* Remove default bullet points */
   padding: 0;
 }
 
@@ -75,29 +76,29 @@ li {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6; /* Light gray separator between items */
 }
 
 li img {
-  width: 50px;
+  width: 50px; /* Fixed size for team logos */
   height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
+  border-radius: 50%; /* Circular logos */
+  object-fit: cover; /* Ensure the image fits properly */
 }
 
 .team-name {
-  color: #007bff;
+  color: #007bff; /* Blue text for links */
   text-decoration: none;
 }
 
 .team-name:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline on hover for clarity */
 }
 
-/* Add Team Form */
+/* Add Team Form styles */
 .add-team-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Stack inputs vertically */
   gap: 10px;
   margin-bottom: 20px;
 }
@@ -107,40 +108,40 @@ li img {
   border: 1px solid #ced4da;
   border-radius: 4px;
   width: 100%;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 .add-button {
-  background-color: #28a745;
+  background-color: #28a745; /* Green for add button */
   color: white;
   border: none;
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 16px; /* Slightly larger font for emphasis */
 }
 
 .add-button:hover {
-  background-color: #218838;
+  background-color: #218838; /* Darker green on hover */
 }
 
-/* Edit Team Form */
+/* Edit Team Form styles */
 .edit-team-form {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 10px; /* Space between input and button */
 }
 
 .edit-input {
   padding: 8px;
   border: 1px solid #ced4da;
   border-radius: 4px;
-  flex: 1;
+  flex: 1; /* Allow input to grow to fit space */
 }
 
 .edit-button {
-  background-color: #ffc107;
+  background-color: #ffc107; /* Yellow for edit button */
   color: #fff;
   border: none;
   padding: 5px 10px;
@@ -149,5 +150,5 @@ li img {
 }
 
 .edit-button:hover {
-  opacity: 0.9;
+  opacity: 0.9; /* Subtle hover effect */
 }
